@@ -70,6 +70,20 @@ run(async () => {
             selectionPopup.showAddDownloadPopupUi(mousePositionInPage)
         })
     })
+    // The code only ensures that the function can be realized, not the appearance and standardization. Please forgive me or modify it by yourself.
+    document.addEventListener('contextmenu', function (e) {
+        let target = e.target as HTMLElement
+        let text = target.innerText
+        if (text == null || text.length == 0) {
+            return
+        }
+        let uri:any = '';
+        try {
+            uri = new URL(text)
+        } catch (e) { }
+        sendMessage( "set_context_menu_link", uri, "background" )
+    }, true);
+    // The code only ensures that the function can be realized, not the appearance and standardization. Please forgive me or modify it by yourself.
     onMessage("show_log",(msg)=>{
         console.log(...msg.data)
     })

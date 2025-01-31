@@ -51,7 +51,8 @@ export const defaultConfig: Config = {
         "srt",
     ],
     allowPassDownloadIfAppNotRespond: true,
-    closeNewTabIfItWasCaptured:true,
+    closeNewTabIfItWasCaptured: true,
+    forcedTryCaptureEnabled: false
 }
 
 export const configKeys:ReadonlyArray<keyof Config>=Object.keys(defaultConfig) as any
@@ -76,6 +77,7 @@ export interface Config {
     registeredFileTypes: string[]
     allowPassDownloadIfAppNotRespond: boolean
     closeNewTabIfItWasCaptured: boolean
+    forcedTryCaptureEnabled: boolean
 }
 
 export const MIN_ALLOWED_PORT = 1024

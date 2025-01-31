@@ -1,4 +1,4 @@
-import {initializeOptions} from "~/contextmenus/ContextMenus";
+import {initializeOptions,resetOptions,setContextLnk} from "~/contextmenus/ContextMenus";
 import * as backend from "~/backend/Backend"
 import {run} from "~/utils/ScopeFunctions";
 import {redirectDownloadLinksToMe} from "~/linkgrabber/LinkGrabber";
@@ -22,6 +22,17 @@ function receiveMessageFromContentScripts() {
     onMessage("get_headers",async (msg)=>{
         return await getHeadersForUrls(msg.data)
     })
+    // The code only ensures that the function can be realized, not the appearance and standardization. Please forgive me or modify it by yourself.
+    onMessage("set_context_menu_link", (msg) => {
+        if (msg.data == null || typeof msg.data !== "string") {
+            msg.data = "";
+        }
+        setContextLnk(msg.data)
+    })
+    onMessage("reset_options", () => {
+        resetOptions()
+    })
+    // The code only ensures that the function can be realized, not the appearance and standardization. Please forgive me or modify it by yourself.
 }
 
 run(async () => {

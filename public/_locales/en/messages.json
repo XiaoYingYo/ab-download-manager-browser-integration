@@ -47,6 +47,12 @@
   "config_show_popups_description": {
     "message": "Show popup on selections which have links"
   },
+  "config_forced_try_capture": {
+    "message": "Forced Try Capture Download Links"
+  },
+  "config_forced_try_capture_description": {
+    "message": "When a non-link tag is selected, also try to capture this content as a download link"
+  },
   "config_port": {
     "message": "Port"
   },
@@ -88,6 +94,9 @@
   },
   "settings": {
     "message": "Settings"
+  },
+  "experimental_settings": {
+    "message": "Experimental Settings"
   },
   "test": {
     "message": "Test"
